@@ -3,21 +3,16 @@ function pesquisar(){
 
 
     let campoPesquisa = document.getElementById("campo-pesquisa").value
-    
 
-    campoPesquisa = campoPesquisa.toLowerCase()
-    let resultados = "";
-    let titulo = "";
-    let descricao = "";
+    console.log(section);
     
-
+    let resultados = ""
+    
+    // para cada dado dentro da lista de dados
+    
     for (let dado of dados) {
-        titulo = dado.titulo.toLowerCase()
-        descricao = dado.descricao.toLowerCase()
-        
-
         // se titulo includes campoPesquisa
-        if (titulo.includes(campoPesquisa) || descricao.includes(campoPesquisa) ) {
+        if(dado.titulo.includes(campoPesquisa)) {
                 //cria um novo elemento
                 resultados +=  `
                 <div class="item-resultado"> 
@@ -32,8 +27,5 @@ function pesquisar(){
             `
     }
 }
-
-if(!resultados) { 
-        resultados = "<p>Nada foi encontrado. O item digitado não consta na base de dados<p/>"}
     section.innerHTML = resultados  
 }
